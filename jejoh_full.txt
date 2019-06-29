@@ -30,5 +30,10 @@ choco install python --pre
 # browsers
 choco install Firefox
 
+# Powershell Modules
+Install-Module -Name AzureADPreview
+Install-Module -Name Az -AllowClobber -Force
+
+
 Install-WindowsUpdate -getUpdatesFromMS -acceptEula -SuppressReboots
 Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives  -EnableShowFileExtensions -EnableShowFullPathInTitleBar
