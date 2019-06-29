@@ -1,0 +1,34 @@
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+choco feature enable -n allowGlobalConfirmation
+
+# source control tools
+choco install git #-params '"/GitAndUnixToolsOnPath"'
+choco install postgit
+
+# utilities
+choco install docker
+choco install 7zip
+choco install ditto 
+choco install ilspy
+choco install NugetPackageExplorer
+choco install astrogrep
+choco install everything
+choco install vagrant
+choco install greenshot
+choco install scriptcs
+choco install linqpad
+choco install zoomit
+choco install licecap
+choco install spotify
+
+# editors
+choco install firacode
+choco install visualstudio2019enterprise
+choco install vscode-insiders
+choco install python --pre
+
+# browsers
+choco install Firefox
+
+Install-WindowsUpdate -getUpdatesFromMS -acceptEula -SuppressReboots
+Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives  -EnableShowFileExtensions -EnableShowFullPathInTitleBar
