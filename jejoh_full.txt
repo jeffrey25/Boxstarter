@@ -1,3 +1,4 @@
+Update-ExecutionPolicy Unrestricted
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 choco feature enable -n allowGlobalConfirmation
 
@@ -20,6 +21,7 @@ choco install linqpad
 choco install zoomit
 choco install licecap
 choco install spotify
+choco install nuget.commandline
 
 # editors
 choco install firacode
@@ -34,6 +36,8 @@ choco install Firefox
 Install-Module -Name AzureADPreview
 Install-Module -Name Az -AllowClobber -Force
 
+# Visual Studio Code Extensions
+choco install vscode-settingssync
 
 Install-WindowsUpdate -getUpdatesFromMS -acceptEula -SuppressReboots
 Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives  -EnableShowFileExtensions -EnableShowFullPathInTitleBar
