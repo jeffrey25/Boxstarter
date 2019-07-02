@@ -28,6 +28,9 @@ Set-TaskbarOptions -Dock Bottom -Combine Full -AlwaysShowIconsOn
 choco install Microsoft-Hyper-V-All -source windowsFeatures
 choco install Microsoft-Windows-Subsystem-Linux -source windowsfeatures
 
+# Install new Windows terminal app
+Get-AppxPackage Microsoft.WindowsTerminal | Install-AppxPackage
+
 # Remove unwanted windows apps
 # Bing Weather, News, Sports, and Finance (Money):
 Get-AppxPackage Microsoft.BingFinance | Remove-AppxPackage
