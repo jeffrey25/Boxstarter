@@ -22,6 +22,9 @@ choco install zoomit
 choco install licecap
 choco install spotify
 choco install nuget.commandline
+choco install ditto
+choco install mousewithoutborders
+choco install azure-documentdb-emulator
 
 # editors
 choco install firacode
