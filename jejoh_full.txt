@@ -4,17 +4,17 @@ choco feature enable -n allowGlobalConfirmation
 
 # source control tools
 choco install git #-params '"/GitAndUnixToolsOnPath"'
-choco install postgit
+choco install poshgit
 
 # utilities
 choco install docker
 choco install 7zip
 choco install ditto 
 choco install ilspy
-choco install NugetPackageExplorer
+#choco install NugetPackageExplorer
 choco install astrogrep
 choco install everything
-choco install vagrant
+#choco install vagrant
 choco install greenshot
 choco install scriptcs
 choco install linqpad
@@ -24,11 +24,12 @@ choco install spotify
 choco install nuget.commandline
 choco install ditto
 choco install mousewithoutborders
-choco install azure-documentdb-emulator
+#choco install azure-documentdb-emulator
 
 # editors
-choco install firacode
-choco install visualstudio2019enterprise
+choco install firacode #font
+choco install inconsolata #font
+choco install visualstudio2019enterprise #this ony installs the shell, you will need to launch the installer and install the options
 choco install vscode-insiders
 choco install python --pre
 
