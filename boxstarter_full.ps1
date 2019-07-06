@@ -24,6 +24,54 @@ Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtec
 Set-TaskbarOptions -Dock Bottom -Combine Full -Lock
 Set-TaskbarOptions -Dock Bottom -Combine Full -AlwaysShowIconsOn
 
+Update-ExecutionPolicy Unrestricted
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+choco feature enable -n allowGlobalConfirmation
+
+# source control tools
+choco install git #-params '"/GitAndUnixToolsOnPath"'
+choco install poshgit
+
+# utilities
+choco install docker
+choco install 7zip
+choco install ditto 
+choco install ilspy
+#choco install NugetPackageExplorer
+choco install astrogrep
+choco install everything
+#choco install vagrant
+choco install greenshot
+choco install scriptcs
+choco install linqpad
+choco install zoomit
+choco install licecap
+choco install spotify
+choco install nuget.commandline
+choco install ditto
+choco install mousewithoutborders
+#choco install azure-documentdb-emulator
+
+# editors
+choco install firacode #font
+choco install inconsolata #font
+choco install visualstudio2019enterprise #this ony installs the shell, you will need to launch the installer and install the options
+choco install vscode-insiders
+choco install python --pre
+
+# browsers
+choco install Firefox
+
+# Powershell Modules
+Install-Module -Name AzureADPreview
+Install-Module -Name Az -AllowClobber -Force
+
+# Visual Studio Code Extensions
+choco install vscode-settingssync
+
+# Stuff not on chocolatey
+# https://github.com/Microsoft/AzureKeyVaultExplorer
+
 # Windows Subsystems/Features
 choco install Microsoft-Hyper-V-All -source windowsFeatures
 choco install Microsoft-Windows-Subsystem-Linux -source windowsfeatures
@@ -76,6 +124,7 @@ Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Advertisi
 Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name NavPaneExpandToCurrentFolder -Value 1		
 Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name NavPaneShowAllFolders -Value 1		
 Set-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name MMTaskbarMode -Value 2
+Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives  -EnableShowFileExtensions -EnableShowFullPathInTitleBar
 
 # Disable the Lock Screen (the one before password prompt - to prevent dropping the first character)
 If (-Not (Test-Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization)) {
@@ -95,10 +144,12 @@ If (-Not (Test-Path "HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Adv
 }
 Set-ItemProperty -Path "HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" -Name PeopleBand -Type DWord -Value 0
 
+# Windows Settings
+Enable-MicrosoftUpdate
+Install-WindowsUpdate -getUpdatesFromMS -acceptEula -SuppressReboots
+
 #--- Restore Temporary Settings ---
 # Enable-UAC
-Enable-MicrosoftUpdate
-Install-WindowsUpdate -acceptEula
 
 #--- Rename the Computer ---
 # Requires restart, or add the -Restart flag
@@ -112,6 +163,5 @@ $env:PSModulePath = $env:PSModulePath + ";C:\Program Files (x86)\Git\bin"
 
 # Tweaks
 #========
-
-Install-ChocolateyPinnedTaskBarItem "$($Boxstarter.programFiles)\Google\Chrome\Application\chrome.exe"
+#Install-ChocolateyPinnedTaskBarItem "$($Boxstarter.programFiles)\Google\Chrome\Application\chrome.exe"
 
