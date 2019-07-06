@@ -43,5 +43,8 @@ Install-Module -Name Az -AllowClobber -Force
 # Visual Studio Code Extensions
 choco install vscode-settingssync
 
+# Stuff not on chocolatey
+# https://github.com/Microsoft/AzureKeyVaultExplorer
+
 Install-WindowsUpdate -getUpdatesFromMS -acceptEula -SuppressReboots
 Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives  -EnableShowFileExtensions -EnableShowFullPathInTitleBar
