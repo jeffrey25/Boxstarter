@@ -51,6 +51,7 @@ choco install nuget.commandline
 choco install ditto
 choco install mousewithoutborders
 #choco install azure-documentdb-emulator
+choco install nodejs
 
 # editors
 choco install firacode #font
